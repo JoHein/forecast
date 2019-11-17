@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../services/weather.service';
 import { City } from '../models/city';
-import { Weatherdata} from '../models/weatherdata';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,6 +10,9 @@ import { Weatherdata} from '../models/weatherdata';
 export class HomeComponent implements OnInit {
 
     cityForecast: City = new City();
+    towns: City[] = [];
+
+    dataCities = [{ city:'Paris', state:'FR'}];
 
     constructor(public weatherService: WeatherService) { }
 
@@ -18,10 +21,18 @@ export class HomeComponent implements OnInit {
     }
 
     loadWeather(): void {
-        this.weatherService.getCity('Paris', 'FR')
-            .subscribe(city => {
-                console.log(city);
-            })
+        for (let value of this.dataCities) {
+            console.log(value);
+            console.log(value.city);
+            console.log(value.state);
+            this.weatherService.getCity(value.city, value.state)
+                .subscribe(city => {
+                    console.log(city);
+                    this.cityForecast = city;
+                    this.towns.push(this.cityForecast);
+                })
+        }
+
     }
 
 }

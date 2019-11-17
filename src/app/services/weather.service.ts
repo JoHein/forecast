@@ -30,9 +30,6 @@ export class WeatherService {
         )
     }
 
-
-
-
     // Error handling 
     handleError(error) {
         let errorMessage = '';
@@ -46,7 +43,5 @@ export class WeatherService {
         window.alert(errorMessage);
         return throwError(errorMessage);
     }
-
-
 
 }

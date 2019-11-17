@@ -1,9 +1,25 @@
-<p>home works!</p>
-<p>home works!</p>
-<p>home works!</p>
-<p>home works!</p>
-<p>home works!</p>
-<p>home works!</p>
-<p>home works!</p>
-<p>home works!</p>
+<app-navbar></app-navbar>
 <p>{{cityForecast|json}}</p>
+
+
+<div class="container">
+  <!--Block town forecast-->
+  <!--Loop for the towns-->
+  <div class="row" *ngFor="let town of towns">
+    <!--Town title-->
+
+    <div class="row">
+      <div class="col">
+        <h2>{{cityForecast.city_name|json}}</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <!--Loop for the next 3 days-->
+      <div class="col">
+
+      </div>
+
+    </div>
+  </div>
+</div>

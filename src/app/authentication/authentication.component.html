@@ -1,0 +1,47 @@
+
+<p *ngIf="authService.userData | async">Hello {{ (authService.userData | async)?.displayName }}</p>
+
+<div *ngIf="!(authService.userData | async)">
+
+
+  <button (click)="signUp()">Sign Up</button>
+
+  <button (click)="signIn()">Login</button>
+</div>
+
+<button (click)="signOut()" *ngIf="authService.userData | async">Sign Out</button>
+
+
+<div class="formGroup">
+  <button type="button" (click)="authService.FacebookSignIn()">
+    Log in with Facebook
+  </button>
+</div>
+
+<div class="container login-container">
+  <div class="row">
+    <div class="col-md-6 login-form-1">
+      <h3>Sign In</h3>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Your Email *" value="" />
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" placeholder="Your Password *" value="" />
+        </div>
+        <div class="form-group">
+          <button (click)="signIn()" class="btnSubmit">Login</button>
+          <button (click)="signUp()" class="btnSubmit">Sign Up</button>
+
+        </div>
+        <div class="form-group">
+          <a (click)="forgotPassword()" class="ForgetPwd">Forget Password?</a>
+        </div>
+    </div>
+
+
+    <div class="col-md-6 login-form-2">
+      <img src="assets/images/weatherlanding.png">
+    </div>
+
+  </div>
+</div>

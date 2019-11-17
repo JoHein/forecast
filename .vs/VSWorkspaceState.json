@@ -2,8 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app"
+    "\\src\\app",
+    "\\src\\app\\adapter",
+    "\\src\\app\\home",
+    "\\src\\app\\models",
+    "\\src\\app\\services",
+    "\\src\\assets"
   ],
-  "SelectedNode": "\\src\\app\\app.component.html",
+  "SelectedNode": "\\src\\app\\models\\weatherdata.ts",
   "PreviewInSolutionExplorer": false
 }
