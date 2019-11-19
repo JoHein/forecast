@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
     cityForecast: City = new City();
     towns: City[] = [];
 
-    dataCities = [{ city:'Paris', state:'FR'}];
+    dataCities = [{ city: 'Lyon', state: 'FR' }, {city:'Sydney',state:'AU'}, {city:'Tokyo',state:'JP'}];
 
     constructor(public weatherService: WeatherService) { }
 
@@ -30,9 +30,10 @@ export class HomeComponent implements OnInit {
                     console.log(city);
                     this.cityForecast = city;
                     this.towns.push(this.cityForecast);
+                    console.log('list of towns', this.towns);
                 })
         }
-
+        this.towns.sort();
     }
 
 }

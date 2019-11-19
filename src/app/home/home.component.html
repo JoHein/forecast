@@ -1,22 +1,30 @@
 <app-navbar></app-navbar>
-<p>{{cityForecast|json}}</p>
+<!--<p>{{cityForecast|json}}</p>-->
 
 
 <div class="container">
   <!--Block town forecast-->
   <!--Loop for the towns-->
-  <div class="row" *ngFor="let town of towns">
+  <div  *ngFor="let town of towns">
     <!--Town title-->
 
     <div class="row">
-      <div class="col">
-        <h2>{{cityForecast.city_name|json}}</h2>
+      <div class="col-12">
+        <h3>{{town.city_name}}</h3>
       </div>
     </div>
 
     <div class="row">
       <!--Loop for the next 3 days-->
-      <div class="col">
+      <div class="col-4" *ngFor="let forecast of town.weather; let i = index ">
+        <p *ngIf="i<3">Clouds : {{forecast.clouds}}</p>
+        <p *ngIf="i<3">Temp : {{forecast.temp}}</p>
+        <p *ngIf="i<3">Wind : {{forecast.wind_spd}}</p>
+        <p *ngIf="i<3">Description : {{forecast.icon.description}}</p>
+        <p *ngIf="i<3">Date : {{forecast.valid_date}}</p>
+        <p *ngIf="i<3">
+          Icon : <img src="assets/icons/{{forecast.icon.icon}}.png" />
+        </p>
 
       </div>
 
