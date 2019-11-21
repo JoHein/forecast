@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../services/weather.service';
 import { City } from '../models/city';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Weatherdata } from '../models/Weatherdata';
 
 @Component({
   selector: 'app-home',
@@ -14,10 +16,18 @@ export class HomeComponent implements OnInit {
 
     dataCities = [{ city: 'Lyon', state: 'FR' }, {city:'Sydney',state:'AU'}, {city:'Tokyo',state:'JP'}];
 
-    constructor(public weatherService: WeatherService) { }
+    constructor(public weatherService: WeatherService, private route: ActivatedRoute,) { }
 
     ngOnInit() {
-        this.loadWeather();
+        //this.loadWeather();
+        this.route.data
+            .subscribe((data: { weather: any }) => {
+                console.log('data resolver in comp', data);
+                console.log('data resolver in comp', data.weather);
+                
+                this.towns = data.weather;
+            });
+        this.towns.sort();
     }
 
     loadWeather(): void {

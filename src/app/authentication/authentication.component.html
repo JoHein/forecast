@@ -13,7 +13,7 @@
 
 
 <div class="formGroup">
-  <button type="button" (click)="authService.FacebookSignIn()">
+  <button type="button" (click)="facebook()">
     Log in with Facebook
   </button>
 </div>
@@ -36,11 +36,15 @@
         <div class="form-group">
           <a (click)="forgotPassword()" class="ForgetPwd">Forget Password?</a>
         </div>
+      <div style="text-align:center;">
+        <h1>Or</h1>
+        <button class="loginBtn loginBtn--facebook" (click)="facebook()">Sign In with Facebook</button>
+      </div>
     </div>
 
 
     <div class="col-md-6 login-form-2">
-      <img src="assets/images/weatherlanding.png">
+      <img src="assets/images/weatherlanding.png" />
     </div>
 
   </div>

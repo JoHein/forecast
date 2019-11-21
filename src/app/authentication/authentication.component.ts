@@ -41,6 +41,11 @@ export class AuthenticationComponent implements OnInit {
 
     }
 
+    facebook() {
+        this.authService.FacebookSignIn();
+        this.router.navigate(['forecast']);
+    }
+
     signOut() {
         this.authService.signOut();
         this.router.navigate(['']);

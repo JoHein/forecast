@@ -30,6 +30,7 @@ export class WeatherService {
         )
     }
 
+
     // Error handling 
     handleError(error) {
         let errorMessage = '';
